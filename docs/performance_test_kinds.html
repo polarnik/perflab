@@ -94,7 +94,12 @@
 		<ul>
 			<li><mark class="green">Быстрые ответы сервера</mark></li>
 			<li class="next"><mark class="yellow">Клиенсткая оптимизация</mark></li>
+			<li class="next">Практика, изучение инструментов</li>
 		</ul>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Возможности инструментов для<br/>тестирования производительности</h2>
 	</div></section>	
 
 	<section class="clear slide"><div>
@@ -105,7 +110,7 @@
 		</ul>
 		<ul>
 			<li class="next"><mark class="yellow">самописные утилиты «Бешеный пользователь»</mark></li>
-			<li class="next"><mark class="yellow">инструменты подачи нагрузки по access.log - httpperf</mark></li>
+			<li class="next"><mark class="yellow">инструменты подачи нагрузки по access.log - <b>httpperf</b></mark></li>
 			
 		</ul>
 		<ul class="next">
@@ -123,17 +128,17 @@
 	<section class="clear slide"><div>
 		<h2 class="next"><mark class="red">Прицельная пулемётная очередь</mark></h2>
 		<ul class="next">
-			<li ><mark class="red">с заданным количеством повторений</mark></li>
-			<li ><mark class="red">одним или несколькими фиксированными запросами</mark></li>
+			<li ><mark class="red">С заданным количеством повторений</mark></li>
+			<li ><mark class="red">Одним или несколькими фиксированными запросами</mark></li>
 		</ul>
 		<ul>
-			<li class="next"><mark class="yellow">BASH-скриптом с curl/wget в цикле</mark></li>
-			<li class="next"><mark class="yellow">утилитой Apache Benchmark</mark></li>
-			<li class="next"><mark class="yellow">на уровне TCP-протокола — tcpreplay</mark></li>
+			<li class="next"><mark class="yellow">BASH-скриптом с <b>curl</b>/<b>wget</b> в цикле</mark></li>
+			<li class="next"><mark class="yellow">Утилитой Apache Benchmark (<b>ab</b>)</mark></li>
+			<li class="next"><mark class="yellow">На уровне TCP-протокола — <b>tcpreplay</b></mark></li>
 		</ul>
 		<ul class="next">
-			<li><mark class="green">точечная нагрузка</mark></li>
-			<li><mark class="green">лёгкость отправки статичных запросов</mark></li>
+			<li><mark class="green">Точечная нагрузка</mark></li>
+			<li><mark class="green">Лёгкость отправки статичных запросов</mark></li>
 		</ul>		
 		<figure>
 			<img class="w cover" src="images/1/boy-ukreplennaya.jpg">
@@ -146,17 +151,17 @@
 	<section class="clear slide"><div>
 		<h2 class="next"><mark class="red">Узконаправленная синтетическая нагрузка</mark></h2>
 		<ul class="next">
-			<li><mark class="red">для выявления лимитов оборудования</mark></li>
-			<li><mark class="red">или пределов определённого сервиса</mark></li>
+			<li><mark class="red">Для выявления лимитов оборудования</mark></li>
+			<li><mark class="red">Или пределов определённого сервиса</mark></li>
 		</ul>
 		<ul>
-			<li class="next"><mark class="yellow">iperf, fio</mark></li>
-			<li class="next"><mark class="yellow">bonnie++</mark></li>
-			<li class="next"><mark class="yellow">MySQL Sysbench Benchmark, pgbench</mark></li>
+			<li class="next"><mark class="yellow">Для сети и диска — <b>iperf</b>, <b>fio</b></mark></li>
+			<li class="next"><mark class="yellow">Для всего оборудования — <b>bonnie++</b></mark></li>
+			<li class="next"><mark class="yellow">Для сервисов — MySQL Sysbench Benchmark, <b>pgbench</b></mark></li>
 		</ul>
 		<ul class="next">
-			<li><mark class="green">простота сравнения результатов</mark></li>
-			<li><mark class="green">знание пределов оборудования и конфигурации</mark></li>
+			<li><mark class="green">Простота сравнения результатов</mark></li>
+			<li><mark class="green">Знание пределов оборудования и конфигурации</mark></li>
 		</ul>		
 		<figure>
 			<img class="w cover" src="images/1/terminator.jpg">
@@ -175,13 +180,13 @@
 			<li class="next"><mark class="green">  анализом происходящего</mark></li>
 		</ul>
 		<ul class="next">
-			<li><mark class="yellow">Apache.JMeter</mark></li>
-			<li><mark class="yellow">Gatling</mark></li>
-			<li><mark class="yellow">Yandex.Tank</mark></li>
+			<li><mark class="yellow"><b>Apache.JMeter</b> — простые сценарии на несколько запросов</mark></li>
+			<li><mark class="yellow"><b>Gatling</b> — сложные сценарии с дясятками запросов</mark></li>
+			<li><mark class="yellow"><b>Yandex.Tank</b> — автоматизация</mark></li>
 		</ul>
 		<ul class="next">
-			<li><mark class="red">сценарии, максимальная гибкость</mark></li>
-			<li><mark class="red">умение разрабатывать многопоточные приложения</mark></li>
+			<li><mark class="red">Сценарии, максимальная гибкость</mark></li>
+			<li><mark class="red">Нужно умение разрабатывать многопоточные приложения</mark></li>
 		</ul>		
 		<figure>
 			<img class="w cover" src="images/1/perf.2.jpg">
@@ -190,6 +195,10 @@
 			</figcaption>			
 		</figure>
 	</div></section>	
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Инструмент подбирается под задачу</h2>
+	</div></section>
 
 	<section class="clear slide"><div>
 		<figure>
