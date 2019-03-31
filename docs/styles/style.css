@@ -80,11 +80,11 @@ h2.active ~ figure > .cover  {
 	font-weight: normal;
 }
 .caption a {
-	color: #ffcc00;
+	color: #fff;
 	text-shadow: 0 1px 1px #1f3f60;
 }
 .caption a:hover {
-	color: #00c7f7;
+	color: #000;
 }
 
 mark.red {
