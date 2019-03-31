@@ -28,8 +28,6 @@
 		<h2>Виды тестирования производительности</h2>
 		<p>Вячеслав Смирнов</p>
 		<p>owasp@yandex.ru</p>
-		<img class="w cover" src="images/hb-bg.png">
-		<img class="w h cover" src="images/hb-bg.2.png">
 		<style>
 			#title h2 {
 				position: relative;
@@ -70,9 +68,50 @@
 	</div></section>
 	<section class="clear yellow slide"><div>
 		<h2 class="small shout">Что такое<br/>тестирование производительности?</h2>
-	</div></section>		
+	</div></section>
+
 	<section class="clear slide"><div>
-		<h2>Это не беспорядочная стрельба</h2>
+		<h2>Тестирование производительности сегодня</h2>
+		<ul class="next">
+			Аналитики
+			<li><mark class="red">Удобство использования</mark></li>
+			<li><mark class="red">Понятность бизнес-процесса, запоминаемость</mark></li>
+		</ul>
+		<ul class="next">
+			Проектировщики интерфейсов, frontend-разработчики
+			<li><mark class="yellow">Клиенсткая оптимизация, быстрая отрисовка</mark></li>
+			<li><mark class="yellow">Энергоэффективность</mark></li>
+		</ul>		
+		<ul class="next">
+			Администраторы, backend-разработчики
+			<li><mark class="green">Быстрые ответы сервера</mark></li>
+			<li><mark class="green">Эффективное использование оборудования</mark></li>
+		</ul>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Тестирование производительности в курсе</h2>
+		<ul>
+			<li><mark class="green">Быстрые ответы сервера</mark></li>
+			<li class="next"><mark class="yellow">Клиенсткая оптимизация</mark></li>
+		</ul>
+	</div></section>	
+
+	<section class="clear slide"><div>
+		<h2><mark class="next red">Это не только беспорядочная стрельба</mark></h2>
+		<ul class="next">
+			<li><mark class="red">с максимальной интенсивностью</mark></li>
+			<li><mark class="red">неизвестными запросами</mark></li>
+		</ul>
+		<ul>
+			<li class="next"><mark class="yellow">самописные утилиты «Бешеный пользователь»</mark></li>
+			<li class="next"><mark class="yellow">инструменты подачи нагрузки по access.log - httpperf</mark></li>
+			
+		</ul>
+		<ul class="next">
+			<li><mark class="green">быстрое выявление дефектов</mark></li>
+			<li><mark class="green">простота подготовки запросов</mark></li>
+		</ul>		
 		<figure>
 			<img class="w cover" src="images/1/perf.1.jpg">
 			<figcaption class="copyright right white">
@@ -82,7 +121,67 @@
 	</div></section>
 
 	<section class="clear slide"><div>
-		<h2>В подходящее время, в нужное место, с точной силой и анализом происходящего</h2>
+		<h2><mark class="next red">Не только пулемётная очередь</mark></h2>
+		<ul class="next">
+			<li ><mark class="red">с максимальной интенсивностью</mark></li>
+			<li ><mark class="red">одним запросом или группой запросов</mark></li>
+		</ul>
+		<ul>
+			<li class="next"><mark class="yellow">утилитой Apache Benchmark</mark></li>
+			<li class="next"><mark class="yellow">BASH-скриптом с curl/wget в цикле</mark></li>
+			<li class="next"><mark class="yellow">на уровне TCP-протокола — tcpreplay</mark></li>
+		</ul>
+		<ul class="next">
+			<li><mark class="green">точечная нагрузка</mark></li>
+			<li><mark class="green">лёгкость отправки статичных запросов</mark></li>
+		</ul>		
+		<figure>
+			<img class="w cover" src="images/1/boy-ukreplennaya.jpg">
+			<figcaption class="copyright right white">
+				© <a href="https://www.goodfon.ru/wallpaper/art-noch-gory-boy-ukreplennaya.html">www.goodfon.ru</a>
+			</figcaption>			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2><mark class="next red">Не только синтетическая нагрузка</mark></h2>
+		<ul class="next">
+			<li><mark class="red">для выявления лимитов оборудования</mark></li>
+			<li><mark class="red">или пределов определённого сервиса</mark></li>
+		</ul>
+		<ul>
+			<li class="next"><mark class="yellow">iperf, fio</mark></li>
+			<li class="next"><mark class="yellow">bonnie++</mark></li>
+			<li class="next"><mark class="yellow">MySQL Sysbench Benchmark, pgbench</mark></li>
+		</ul>
+		<ul class="next">
+			<li><mark class="green">простота сравнения результатов</mark></li>
+			<li><mark class="green">знание пределов оборудования и конфигурации</mark></li>
+		</ul>		
+		<figure>
+			<img class="w cover" src="images/1/terminator.jpg">
+			<figcaption class="copyright right white">
+				© <a href="https://naked-science.ru/article/hi-tech/v-permi-sozdana-deystvuyushchaya">naked-science.ru</a>
+			</figcaption>			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2><mark class="next green">Но и точная нагрузка</mark></h2>
+		<ul>
+			<li class="next"><mark class="green">В подходящее время</mark></li>
+			<li class="next"><mark class="green">В нужном месте</mark></li>
+			<li class="next"><mark class="green">С нужной силой</mark></li>
+			<li class="next"><mark class="green">  анализом происходящего</mark></li>
+		</ul>
+		<ul class="next">
+			<li><mark class="yellow">Apache.JMeter, Gatling</mark></li>
+			<li><mark class="yellow">Yandex.Tank</mark></li>
+		</ul>
+		<ul class="next">
+			<li><mark class="red">сценарии, максимальная гибкость</mark></li>
+			<li><mark class="red">умение разрабатывать многопоточные приложения</mark></li>
+		</ul>		
 		<figure>
 			<img class="w cover" src="images/1/perf.2.jpg">
 			<figcaption class="copyright right white">
@@ -174,12 +273,12 @@
 
 	<section class="clear slide" id="contacts"><div>
 		<h2>Вячеслав Смирнов</h2>
-		<p><a href="https://polarnik.github.io">polarnik.github.io</a>, @qa_load</p>
+		<p>owasp@yandex.ru,<br/>@qa_load</p>
 		<div><span></span><h2>Спасибо!</h2></div>
 		<style>
 			#contacts h2 {
 				position: relative;
-				top: calc(var(--slide-height) / 2.7);
+				top: calc(var(--slide-height) / 3.06);
 				left: calc(var(--slide-width) / 12);
 				font-size: calc(var(--slide-height) / 15);
 			}
@@ -187,8 +286,6 @@
 				position: relative;
 				top: calc(var(--slide-height) / 2.7);
 				left: calc(var(--slide-width) / 12);
-				font-size: calc(var(--slide-height) / 15);
-
 			}
 			#contacts div div {
 				width: calc(var(--slide-width) / 4);

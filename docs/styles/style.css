@@ -1,5 +1,5 @@
 .shower {
-	font-size: calc(var(--slide-height) / 25);
+	font-size: calc(var(--slide-height) / 22);
 }
 
 @font-face {
@@ -17,10 +17,12 @@
 	/*font-family: 'Suisse', sans-serif;*/
 	font-weight: normal;
 	font-size: calc(var(--slide-height) / 15);
+	line-height: 1.2;
 }
 .slide p, .slide li {
 	/*font-family: 'Helvetica', 'Arial', sans-serif;*/
 	color: #414143;
+	line-height: calc(var(--slide-height) / 18);
 }
 .slide span.integer {
 	/*font-family: 'Suisse Bold', sans-serif;*/
