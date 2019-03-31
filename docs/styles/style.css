@@ -13,6 +13,10 @@
 	/*src: url(../fonts/suisseintl-cond-bold.ttf) format("truetype");*/
 }
 
+h2.active ~ figure > .cover  {
+	filter: brightness(40%);
+}
+
 .slide h2 {
 	/*font-family: 'Suisse', sans-serif;*/
 	font-weight: normal;
