@@ -386,14 +386,109 @@
 			А что будет через 5 лет работы системы?<br/>
 			Сработает ли автомасштабирование?<br/>
 		… ещё много вопросов</h2>
-	</div></section>	
+	</div></section>
+
+	<section class="clear blue slide"><div>
+		<h2 class="small shout">Что будет при эксплуатации 24x7?<br/>
+			Стабильна ли система при нагрузке выше средней?<br/>
+			Как быстро растёт размер базы данных и логов?<br/>
+			Есть ли утечка соединений, памяти?<br/>
+			Нет ли потерь данных?<br/>
+			… ещё много вопросов</h2>
+	</div></section>		
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Тестирование стабильности (stability testing)<br/>
+			длительное тестирование со средней нагрузкой,
+			поиском отклонений и проверками корректности работы</h2>
+	</div></section>
 
 	<section class="slide"><div>
-		<h2>Тестирование стабильности (stability testing)</h2>
-		<h3>длительное тестирование со средним уровнем нагрузки</h3>
-		<img src="images/1/stable.png"
-			class="place center"
-			style="margin: 50px 0px 50px 0">
+		<h2>Выбирается рабочая нагрузка</h2>
+		<h3>не выше предельной, чтобы не было ошибок</h3>
+		<img src="images/1/stability.testing-0.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Тестирование проводится длительное время</h2>
+		<h3>всю ночь или все выходные</h3>
+		<img src="images/1/stability.testing-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Количественные и функциональные проверки</h2>
+		<h3>выполняются во время или между итерациями</h3>
+		<img src="images/1/stability.testing-2.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Стараться в тестировании стабильности</h2>
+		<h3>избежать неравномерной нагрузки: 1 сценарий/мин, но …</h3>
+		<img src="images/1/stability.testing-peak-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Пиков и спадов нагрузки по запросам</h2>
+		<h3>раз за разом</h3>
+		<img src="images/1/stability.testing-peak-2.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Пиков и спадов нагрузки по запросам</h2>
+		<h3>раз за разом, раз за разом</h3>
+		<img src="images/1/stability.testing-peak-3.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сложно выявлять аномалии</h2>
+		<h3>если утилизация ресурсов нестабильна</h3>
+		<img src="images/1/stability.testing-peak-4-metrics.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Прогрев (RumpUp) сглаживает пики</h2>
+		<h3>но требует времени — идеальный равен шагу нагрузки</h3>
+		<img src="images/1/stability.testing-peak-rumpup.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Паузы уменьшают вероятность пиков</h2>
+		<h3>но их сложно расчитать — идеально делить по запросам</h3>
+		<img src="images/1/stability.testing-peak-timer.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Прогрев с паузами можно объединить</h2>
+		<h3>требует умения и пары экспериментов</h3>
+		<img src="images/1/stability.testing-peak-timer-rumpup.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>И тогда показатели будут стабильны</h2>
+		<h3>а выбросы будут указывать на проблемы</h3>
+		<img src="images/1/stability.testing-peak-timer-rumpup-metrics.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
 	</div></section>
 
 	<section class="slide"><div>
