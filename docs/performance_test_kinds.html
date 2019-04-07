@@ -212,24 +212,36 @@
 	<section class="clear slide"><div>
 		<figure>
 			<img class="h cover" src="images/1/internet.png">
+			<figcaption class="copyright right">
+				© <a href="https://infogram.com/test-1hmr6gy3l5po6nl">owasp (infogram.com)</a>
+			</figcaption>			
 		</figure>
 	</div></section>
 
 	<section class="clear slide"><div>
 		<figure>
 			<img class="h cover" src="images/1/termin.all.yandex.png">
+			<figcaption class="copyright right">
+				© <a href="https://infogram.com/populyarnost-vidov-testirovaniya-v-poiskovyh-sistemah-1gew2v85r45rmnj">owasp (infogram.com)</a>
+			</figcaption>			
 		</figure>
 	</div></section>
 
 	<section class="clear slide"><div>
 		<figure>
 			<img class="h cover" src="images/1/termin.all.google.png">
+			<figcaption class="copyright right">
+				© <a href="https://infogram.com/populyarnost-vidov-testirovaniya-v-poiskovyh-sistemah-1gew2v85r45rmnj">owasp (infogram.com)</a>
+			</figcaption>				
 		</figure>
 	</div></section>
 
 	<section class="clear slide"><div>
 		<figure>
 			<img class="h cover" src="images/1/termin.all.yandex.google.png">
+			<figcaption class="copyright right">
+				© <a href="https://infogram.com/populyarnost-vidov-testirovaniya-v-poiskovyh-sistemah-1gew2v85r45rmnj">owasp (infogram.com)</a>
+			</figcaption>		
 		</figure>
 	</div></section>	
 
@@ -271,53 +283,110 @@
 		</ul>
 	</div></section>
 
+	<section class="clear blue slide"><div>
+		<h2 class="small shout">Выдержит ли система планируемую нагрузку?<br/>
+			Есть ли узкие места?</h2>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Нагрузочное тестирование (load testing)<br/>выполнение программы с повышением нагрузки<br/>от среднего профиля до максимального и выше</h2>
+	</div></section>
+
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Нагрузка подаётся ступенями</h2>
+		<h3>растёт количество операций в единицу времени</h3>
 		<img src="images/1/load.testing-1.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Или нагрузка растёт плавно</h2>
+		<h3>выше максимума, чтобы знать есть ли запас</h3>
 		<img src="images/1/load.testing-2.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Анализ длительности обработки запросов</h2>
+		<h3>ищём точку деградации и недоступности (timeout, 504, …)</h3>
 		<img src="images/1/load.testing-3.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>	
 
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Сохраняем интенсивность (deg, off)</h2>
+		<h3>сравниваем с профилем нагрузки (min, med, max)</h3>
+		<img src="images/1/load.testing-3-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Анализ утилизации ресурсов: cpu, memory, …</h2>
+		<h3>ищём узкое место, лимиты, в т.ч. конфигурационные</h3>
 		<img src="images/1/load.testing-4.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Детальный анализ утилизации ресурсов</h2>
+		<h3>необходимо понимание работы системы: %usr, %sys, …</h3>
+		<img src="images/1/load.testing-4-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Анализ логов, ошибок, кодов ответов</h2>
+		<h3>ищем точку появления ошибок под нагрузкой</h3>
 		<img src="images/1/load.testing-5.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Нагрузочное тестирование (load testing)</h2>
-		<h3>выполнение программы с повышением нагрузки</h3>
+		<h2>Сохраняем интенсивность (error)</h2>
+		<h3>стараемся избавиться от ошибок и предупреждений</h3>
+		<img src="images/1/load.testing-5-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Отчёт: точка деградации, ошибок, отказа, …</h2>
+		<h3>и их отношение к профилю нагрузки: med, max </h3>
 		<img src="images/1/load.testing-6.png"
 			class="place bottom center"
 			style="height:60%; margin: 50px 0px 50px 0">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Выбирем профиль для теста стабильности</h2>
+		<h3>обычно, 80% от точки деградации/появления ошибок</h3>
+		<img src="images/1/load.testing-6-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">
 	</div></section>		
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout"><strike>Выдержит ли система планируемую нагрузку?</strike><br/>
+			<strike>Есть ли узкие места?</strike><br/>
+			Нашли точку деградации, ошибок, отказа<br/>
+		выбрали максимальную рабочую нагрузку - work<br/>
+		выявили узкие места и ошибки, устранили их</h2>
+	</div></section>
+
+	<section class="clear blue slide"><div>
+		<h2 class="small shout">Что будет при эксплуатации 24x7?<br/>
+			Восстановится ли система после ошибок?<br/>
+			А что будет через 5 лет работы системы?<br/>
+			Сработает ли автомасштабирование?<br/>
+		… ещё много вопросов</h2>
+	</div></section>	
 
 	<section class="slide"><div>
 		<h2>Тестирование стабильности (stability testing)</h2>
