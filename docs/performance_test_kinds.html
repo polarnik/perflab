@@ -373,19 +373,11 @@
 	</div></section>		
 
 	<section class="clear green slide"><div>
-		<h2 class="small shout"><strike>Выдержит ли система планируемую нагрузку?</strike><br/>
-			<strike>Есть ли узкие места?</strike><br/>
-			Нашли точку деградации, ошибок, отказа<br/>
+		<h2 class="small shout">☑ Выдержит ли система планируемую нагрузку?<br/>
+		☑ Есть ли узкие места?<br/>
+		Нашли точку деградации, ошибок, отказа<br/>
 		выбрали максимальную рабочую нагрузку - work<br/>
 		выявили узкие места и ошибки, устранили их</h2>
-	</div></section>
-
-	<section class="clear blue slide"><div>
-		<h2 class="small shout">Что будет при эксплуатации 24x7?<br/>
-			Восстановится ли система после ошибок?<br/>
-			А что будет через 5 лет работы системы?<br/>
-			Сработает ли автомасштабирование?<br/>
-		… ещё много вопросов</h2>
 	</div></section>
 
 	<section class="clear blue slide"><div>
@@ -393,8 +385,7 @@
 			Стабильна ли система при нагрузке выше средней?<br/>
 			Как быстро растёт размер базы данных и логов?<br/>
 			Есть ли утечка соединений, памяти?<br/>
-			Нет ли потерь данных?<br/>
-			… ещё много вопросов</h2>
+			Нет ли потерь данных?</h2>
 	</div></section>		
 
 	<section class="clear yellow slide"><div>
@@ -492,11 +483,134 @@
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Стрессовое тестирование (stress testing)</h2>
-		<h3>тестирование за пределами рабочих нагрузок, в ограниченных ресурсах</h3>
-		<img src="images/1/stress.png"
-			class="place center"
-			style="margin: 50px 0px 50px 0">
+		<h2>Утечки ресурсов и ошибки</h2>
+		<h3>попадут в отчёт по тестированию стабильности</h3>
+		<img src="images/1/stability.testing-results.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0"">
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">☑ Что будет при эксплуатации 24x7?<br/>
+			☑ Стабильна ли система при нагрузке выше средней?<br/>
+			☑ Как быстро растёт размер базы данных и логов?<br/>
+			☑ Есть ли утечка соединений, памяти?<br/>
+			☑ Нет ли потерь данных?</h2>
+	</div></section>	
+
+	<section class="clear blue slide"><div>
+		<h2 class="small shout">Если нагрузка ненадолго превысит максимум?<br/>
+			Освобождаются ли неиспользуемые ресурсы?<br/>
+			Восстановится ли система после ошибок?<br/>
+			Какие ошибки проявляются под нагрузкой?</h2>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Жил да был один сервер,<br/>
+			было у него три друга-сервера,<br/>
+			и однажды он решил перезагрузиться.</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сначала всё было хорошо</h2>
+		<h3>нагрузка на каждый сервер была средней</h3>
+		<img src="images/1/system-reboot-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Один ушел на перезагрузку</h2>
+		<h3>нагрузка подросла</h3>
+		<img src="images/1/system-reboot-2.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Второй не выдержал</h2>
+		<h3>нагрузка ещё подросла</h3>
+		<img src="images/1/system-reboot-3.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Третий не выдержал</h2>
+		<h3>и снова нагрузка подросла, пользователи заметили</h3>
+		<img src="images/1/system-reboot-4.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Работа начала восстанавливаться</h2>
+		<h3>а нагрузка выравниваться</h3>
+		<img src="images/1/system-reboot-5.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Работа почти восстановилась</h2>
+		<h3>нагрузка распределилась</h3>
+		<img src="images/1/system-reboot-6.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Система справилась</h2>
+		<h3>нагрузка снова минимальная</h3>
+		<img src="images/1/system-reboot-1.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Стрессовое тестирование (stress testing)<br/>
+			тестирование за пределами рабочих нагрузок,<br/>
+			в ограниченных ресурсах</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Быстро и ненадолго повысим нагрузку</h2>
+		<h3>и повторим такой процесс несколько раз</h3>
+		<img src="images/1/stress-2.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Выявим утечку ресурсов</h2>
+		<h3>проверим корректность обработки исключений</h3>
+		<img src="images/1/stress-3.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Выявим утечку ресурсов</h2>
+		<h3>возможно, что ресурсы не освобождаются полностью</h3>
+		<img src="images/1/stress-5.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Выявим утечку ресурсов</h2>
+		<h3>возможно, что ресурсы не освобождаются частично</h3>
+		<img src="images/1/stress-5-2.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Проверим реакцию на временное зависание</h2>
+		<h3>быстро ли разбираются внутренние очереди системы</h3>
+		<img src="images/1/stress-6.png"
+			class="place bottom center"
+			style="height:60%; margin: 50px 0px 50px 0">		
 	</div></section>
 
 	<section class="slide"><div>
