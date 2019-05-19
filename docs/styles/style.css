@@ -34,7 +34,7 @@ h2.active ~ figure > .cover  {
 }
 .slide h2.shout.small {
 	font-size: calc(var(--slide-height) / 15);
-	line-height: calc(var(--slide-height) / 6);
+	line-height: 2.0;
 }
 .slide .shout {
 	color: var(--color-black);
