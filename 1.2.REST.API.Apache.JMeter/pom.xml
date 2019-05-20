@@ -1,0 +1,289 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.polarnik</groupId>
+    <artifactId>perflab.rest.api.apache.jmeter</artifactId>
+    <version>0.0.1</version>
+    <name>REST API Apache.JMeter</name>
+    <description>Apache.JMeter example test for WordPress REST API</description>
+
+
+    <!-- Properties -->
+    <properties>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <jmeter.maven.plugin.version>2.9.0</jmeter.maven.plugin.version>
+        <jmeter.version>5.1.1</jmeter.version>
+
+        <wp.api.url>http://lab-wp.ragozin.info/wp-json</wp.api.url>
+
+        <wp.token>Ym9zczpib3Nz</wp.token>
+
+        <!-- Test name -->
+        <performancetest.script>wp.rest.api</performancetest.script>
+
+        <influxdb.host>localhost</influxdb.host>
+        <influxdb.port>8086</influxdb.port>
+        <influxdb.database>jmeter</influxdb.database>
+        <influxdb.username>none</influxdb.username>
+        <influxdb.password>none</influxdb.password>
+
+        <maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
+    </properties>
+
+
+    <profiles>
+        <profile>
+            <id>_.jmeter.http.static</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <configuration>
+                            <propertiesJMeter>
+                                <httpclient.reset_state_on_thread_group_iteration>false</httpclient.reset_state_on_thread_group_iteration>
+                            </propertiesJMeter>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+        <profile>
+            <id>zoom</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <configuration>
+                            <propertiesJMeter>
+                                <jmeter.hidpi.mode>true</jmeter.hidpi.mode>
+                                <jmeter.hidpi.scale.factor>2.0</jmeter.hidpi.scale.factor>
+                                <jmeter.toolbar.icons.size>32x32</jmeter.toolbar.icons.size>
+                                <jmeter.tree.icons.size>24x24</jmeter.tree.icons.size>
+                                <jsyntaxtextarea.font.family>Hack</jsyntaxtextarea.font.family>
+                                <jsyntaxtextarea.font.size>24</jsyntaxtextarea.font.size>
+                            </propertiesJMeter>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>examples.wp.rest.api</id>
+            <properties>
+                <performancetest.script>examples.wp.rest.api</performancetest.script>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>examples.proxy.server</id>
+            <properties>
+                <performancetest.script>examples.proxy.server</performancetest.script>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>examples.test.data</id>
+            <properties>
+                <performancetest.script>examples.test.data</performancetest.script>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+
+
+                        <configuration>
+                            <jmeterExtensions>
+                                <!-- Random CSV Data Set
+                                -->
+                                <artifact>com.blazemeter:jmeter-plugins-random-csv-data-set:0.6</artifact>
+
+                                <!-- Variables from CSV File
+                                -->
+                                <artifact>kg.apc:jmeter-plugins-csvars:0.1</artifact>
+
+                                <!-- Directory Listing Config
+                                -->
+                                <artifact>com.blazemeter:jmeter-plugins-directory-listing:0.2</artifact>
+
+                            </jmeterExtensions>
+
+
+                            <propertiesUser>
+                                <prop1>Apache.JMeter</prop1>
+                                <prop2>Gatling</prop2>
+                                <prop3>Yandex.Tank</prop3>
+                            </propertiesUser>
+
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.lazerycode.jmeter</groupId>
+                <artifactId>jmeter-maven-plugin</artifactId>
+                <version>${jmeter.maven.plugin.version}</version>
+                <executions>
+                    <!-- Run JMeter tests -->
+                    <execution>
+                        <id>jmeter-tests</id>
+                        <goals>
+                            <goal>jmeter</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <testFilesIncluded>
+                        <jMeterTestFile>${performancetest.script}.jmx</jMeterTestFile>
+                    </testFilesIncluded>
+                    <jmeterVersion>${jmeter.version}</jmeterVersion>
+
+                    <jmeterExtensions>
+                        <!-- Custom Thread Groups
+                        https://jmeter-plugins.org/?search=jpgc-casutg
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-casutg/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-casutg:2.6</artifact>
+                    </jmeterExtensions>
+
+                    <testPlanLibraries>
+                        <!-- JMeter Plugins Common Classes: Various utility classes to ease development of plugins
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-cmn-jmeter/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-cmn-jmeter:0.6</artifact>
+
+                    </testPlanLibraries>
+
+                    <downloadExtensionDependencies>false</downloadExtensionDependencies>
+                    <downloadLibraryDependencies>false</downloadLibraryDependencies>
+                    <downloadOptionalDependencies>false</downloadOptionalDependencies>
+                    <downloadJMeterDependencies>false</downloadJMeterDependencies>
+
+                    <resultsFileFormat>csv</resultsFileFormat>
+                    <generateReports>true</generateReports>
+                    <reportDirectory>${project.build.directory}/jmeter/reports/${performancetest.script}-${maven.build.timestamp}</reportDirectory>
+
+                    <testResultsTimestamp>true</testResultsTimestamp>
+                    <appendResultsTimestamp>true</appendResultsTimestamp>
+                    <resultsFileNameDateFormat>yyyy-MM-dd_HH-mm-ss</resultsFileNameDateFormat>
+                    <overrideRootLogLevel>INFO</overrideRootLogLevel>
+                    <suppressJMeterOutput>false</suppressJMeterOutput>
+                    <ignoreResultFailures>true</ignoreResultFailures>
+                    <guiTestFile>${project.basedir}/src/test/jmeter/${performancetest.script}.jmx</guiTestFile>
+
+                    <!-- Configuring the jvm that the jmeter process runs in
+                    https://github.com/jmeter-maven-plugin/jmeter-maven-plugin/wiki/Configuring-the-jvm-that-the-jmeter-process-runs-in
+                    http://reins.altervista.org/java/A_Collection_of_JVM_Options_MP.html
+                    https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+                    -->
+                    <jMeterProcessJVMSettings>
+                        <xms>256</xms>
+                        <xmx>1024</xmx>
+                        <arguments>
+                            <argument>-XX:MaxMetaspaceSize=256m</argument>
+
+                            <argument>-XX:+UseG1GC</argument>
+                            <argument>-XX:MaxGCPauseMillis=100</argument>
+                            <argument>-XX:G1ReservePercent=20</argument>
+
+                            <argument>-Duser.language=en</argument>
+                            <argument>-Duser.region=EN</argument>
+
+                            <argument>-Dfile.encoding=UTF-8</argument>
+
+                            <argument>-XX:-HeapDumpOnOutOfMemoryError</argument>
+                            <argument>-server</argument>
+                        </arguments>
+                    </jMeterProcessJVMSettings>
+
+
+
+                    <propertiesJMeter>
+                        <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
+                        <jmeter.save.saveservice.subresults>true</jmeter.save.saveservice.subresults>
+                        <sample_variables></sample_variables>
+                        <!-- # Disable sent statistics to https://jmeter-plugins.org/stats/ -->
+                        <jpgc.repo.sendstats>false</jpgc.repo.sendstats>
+
+
+                        <backend_metrics_window_mode>fixed</backend_metrics_window_mode>
+                        <backend_metrics_window>100</backend_metrics_window>
+                        <backend_metrics_large_window>5000</backend_metrics_large_window>
+                        <backend_influxdb.send_interval>5</backend_influxdb.send_interval>
+                        <backend_influxdb.connection_timeout>1000</backend_influxdb.connection_timeout>
+                        <backend_influxdb.socket_timeout>3000</backend_influxdb.socket_timeout>
+                        <backend_influxdb.connection_request_timeout>100</backend_influxdb.connection_request_timeout>
+                    </propertiesJMeter>
+
+                    <propertiesReportGenerator>
+                        <jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
+                        <jmeter.reportgenerator.graph.responseTimeDistribution.property.set_granularity>1000</jmeter.reportgenerator.graph.responseTimeDistribution.property.set_granularity>
+                    </propertiesReportGenerator>
+
+
+
+                    <propertiesUser>
+                        <testDataFolder>${project.basedir}/src/test/jmeter/data</testDataFolder>
+
+                        <influxdb.host>${influxdb.host}</influxdb.host>
+                        <influxdb.port>${influxdb.port}</influxdb.port>
+                        <influxdb.database>${influxdb.database}</influxdb.database>
+                        <influxdb.username>${influxdb.username}</influxdb.username>
+                        <influxdb.password>${influxdb.password}</influxdb.password>
+                    </propertiesUser>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/polarnik/jmeter-loadtestweb</url>
+        <connection>https://github.com/polarnik/Apache.JMeter.Benchmark.NG.git</connection>
+        <developerConnection>git@github.com:polarnik/Apache.JMeter.Benchmark.NG.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>polarnik</id>
+            <name>SMIRNOV Vyacheslav</name>
+            <url>https://github.com/polarnik</url>
+        </developer>
+    </developers>
+
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

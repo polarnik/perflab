@@ -1,0 +1,2257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Examples WordPress REST-API" enabled="true">
+      <stringProp name="TestPlan.comments">Примеры подготовлены на основе материалов:
+https://wp-kama.ru/handbook/rest/wp-routes
+
+Архив:
+https://web.archive.org/web/20190504140935/https://wp-kama.ru/handbook/rest/wp-routes</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="wp.host" elementType="Argument">
+            <stringProp name="Argument.name">wp.host</stringProp>
+            <stringProp name="Argument.value">${__P(wp.host,wp.loadlab.ragozin.info)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="basicToken" elementType="Argument">
+            <stringProp name="Argument.name">basicToken</stringProp>
+            <stringProp name="Argument.value">${__P(basicToken,Ym9zczpib3Nz)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${wp.host}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Basic ${basicToken}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="278326943">Examples WordPress REST-API</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="-1219732275">Записи (posts) /wp-json/wp/v2/posts</stringProp>
+            <stringProp name="1940991350">/wp/v2/posts/{post_ID}</stringProp>
+            <stringProp name="-1081610380">Описание</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySamplerProperties">false</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Записи (posts) /wp-json/wp/v2/posts" enabled="true"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/posts" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Описание" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OPTIONS /wp-json/wp/v2/posts" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts</stringProp>
+                <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /wp-json/wp/v2/posts?_method=OPTIONS" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="_method" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">OPTIONS</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">_method</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SEARCH /wp-json/wp/v2/posts?_method=OPTIONS" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts?_method=OPTIONS</stringProp>
+                <stringProp name="HTTPSampler.method">SEARCH</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Список записей" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /wp-json/wp/v2/posts" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="context" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${context}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">context</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${page}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="per_page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${per_page}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">per_page</stringProp>
+                    </elementProp>
+                    <elementProp name="status" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${status}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">status</stringProp>
+                    </elementProp>
+                    <elementProp name="after" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${after}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">after</stringProp>
+                    </elementProp>
+                    <elementProp name="include" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${include}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">include</stringProp>
+                    </elementProp>
+                    <elementProp name="exclude" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${exclude}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">exclude</stringProp>
+                    </elementProp>
+                    <elementProp name="include" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${include}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">include</stringProp>
+                    </elementProp>
+                    <elementProp name="offset" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${offset}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">offset</stringProp>
+                    </elementProp>
+                    <elementProp name="order" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${order}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">order</stringProp>
+                    </elementProp>
+                    <elementProp name="orderby" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${orderby}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">orderby</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="context" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="951530927">context</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1503566020">
+                      <stringProp name="3619493">view</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1732227201">
+                      <stringProp name="96620249">embed</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Область, в которой выполняется запрос;
+определяет поля, присутствующие в ответе.
+Может быть view, embed, edit.
+
+        &quot;context&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: &quot;view&quot;,
+          &quot;enum&quot;: [
+            &quot;view&quot;,
+            &quot;embed&quot;,
+            &quot;edit&quot;
+          ],
+          &quot;description&quot;: &quot;Scope under which the request is made; determines fields present in response.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="page" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3433103">page</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                    <collectionProp name="85921">
+                      <stringProp name="50">2</stringProp>
+                    </collectionProp>
+                    <collectionProp name="85959">
+                      <stringProp name="51">3</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Текущая страница коллекции.
+
+        &quot;page&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: 1,
+          &quot;description&quot;: &quot;Current page of the collection.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="per_page" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="424711281">per_page</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="55984448">
+                      <stringProp name="1567">10</stringProp>
+                    </collectionProp>
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1840632674">
+                      <stringProp name="48625">100</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Максимальное количество записей в результирующем наборе.
+
+
+        &quot;per_page&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: 10,
+          &quot;description&quot;: &quot;Maximum number of items to be returned in result set.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="search" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-906336856">search</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                    <collectionProp name="1865434186">
+                      <stringProp name="3556498">test</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1865500682">
+                      <stringProp name="3556653">text</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">
+        &quot;search&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Limit results to those matching a string.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="after" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="92734940">after</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1239978449">
+                      <stringProp name="-501173762">2001-07-04T12:08:56.235-07:00</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1436796414">
+                      <stringProp name="-156444543">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS,,-P10D,,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">
+        &quot;after&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Limit response to posts published after a given ISO8601 compliant date.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="author" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1406328437">author</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1840594627">
+                      <stringProp name="48503">1,2</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1353072715">
+                      <stringProp name="46612798">1,2,3</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">
+        &quot;author&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to posts assigned to specific authors.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="author_exclude" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1066079450">author_exclude</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1153710862">
+                      <stringProp name="47537281">2,3,4</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1870398726">
+                      <stringProp name="54615">777</stringProp>
+                    </collectionProp>
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">
+        &quot;author_exclude&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Ensure result set excludes posts assigned to specific authors.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="before" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1392885889">before</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1825838923">
+                      <stringProp name="1561378403">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSSXXX,)}</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-229532563">
+                      <stringProp name="1422054272">2021-07-04T12:08:56.235-07:00</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1201087688">
+                      <stringProp name="1465393566">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS,,P10D,,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">
+        &quot;before&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Limit response to posts published before a given ISO8601 compliant date.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="exclude" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1321148966">exclude</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1314458234">
+                      <stringProp name="-1895046883">9,10,777</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;exclude&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Ensure result set excludes specific IDs.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="include" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1942574248">include</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1840594741">
+                      <stringProp name="48506">1,5</stringProp>
+                    </collectionProp>
+                    <collectionProp name="733258710">
+                      <stringProp name="799697838">1,2,3,4,5,6,7,8,9,10</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;include&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to specific IDs.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        }</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="offset" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1019779949">offset</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="85068">
+                      <stringProp name="48">0</stringProp>
+                    </collectionProp>
+                    <collectionProp name="85106">
+                      <stringProp name="49">1</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;offset&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Offset the result set by a specific number of items.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="order" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="106006350">order</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="935313317">
+                      <stringProp name="3079825">desc</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2009405629">
+                      <stringProp name="96881">asc</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;order&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: &quot;desc&quot;,
+          &quot;enum&quot;: [
+            &quot;asc&quot;,
+            &quot;desc&quot;
+          ],
+          &quot;description&quot;: &quot;Order sort attribute ascending or descending.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="orderby" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1207109595">orderby</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="931717065">
+                      <stringProp name="3076014">date</stringProp>
+                    </collectionProp>
+                    <collectionProp name="661391336">
+                      <stringProp name="108474201">relevance</stringProp>
+                    </collectionProp>
+                    <collectionProp name="58118435">
+                      <stringProp name="3355">id</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2108069730">
+                      <stringProp name="1942574248">include</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1047835956">
+                      <stringProp name="110371416">title</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1793762484">
+                      <stringProp name="3533483">slug</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;orderby&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: &quot;date&quot;,
+          &quot;enum&quot;: [
+            &quot;date&quot;,
+            &quot;relevance&quot;,
+            &quot;id&quot;,
+            &quot;include&quot;,
+            &quot;title&quot;,
+            &quot;slug&quot;
+          ],
+          &quot;description&quot;: &quot;Sort collection by object attribute.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="slug" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3533483">slug</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="57224444">
+                      <stringProp name="2914">[]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1915234568">
+                      <stringProp name="-1718714759">[test1]</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;slug&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Limit result set to posts with one or more specific slugs.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892481550">status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;status&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: &quot;c&quot;,
+          &quot;description&quot;: &quot;Limit result set to posts assigned one or more statuses.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;enum&quot;: [
+              &quot;publish&quot;,
+              &quot;future&quot;,
+              &quot;draft&quot;,
+              &quot;pending&quot;,
+              &quot;private&quot;,
+              &quot;trash&quot;,
+              &quot;auto-draft&quot;,
+              &quot;inherit&quot;,
+              &quot;any&quot;
+            ],
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="categories" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1296516636">categories</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="57224444">
+                      <stringProp name="2914">[]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1978247659">
+                      <stringProp name="89063">[1]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-2097781449">
+                      <stringProp name="85544097">[1,2]</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;categories&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to all items that have the specified term assigned in the categories taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="categories_exclude" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1106112183">categories_exclude</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="57224444">
+                      <stringProp name="2914">[]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1978278764">
+                      <stringProp name="89125">[3]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1073511744">
+                      <stringProp name="85633563">[4,5]</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;categories_exclude&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to all items except those that have the specified term assigned in the categories taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="tags" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3552281">tags</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="57224444">
+                      <stringProp name="2914">[]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1978247659">
+                      <stringProp name="89063">[1]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1978251168">
+                      <stringProp name="89094">[2]</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;tags&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to all items that have the specified term assigned in the tags taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="tags_exclude" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="155291572">tags_exclude</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="57224444">
+                      <stringProp name="2914">[]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1978278764">
+                      <stringProp name="89125">[3]</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1073511744">
+                      <stringProp name="85633563">[4,5]</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;tags_exclude&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: [],
+          &quot;description&quot;: &quot;Limit result set to all items except those that have the specified term assigned in the tags taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="sticky" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892259863">sticky</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1902774694">
+                      <stringProp name="3569038">true</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-544885953">
+                      <stringProp name="97196323">false</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;sticky&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Limit result set to items that are sticky.&quot;,
+          &quot;type&quot;: &quot;boolean&quot;
+        }
+
+
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Создание записи * (нужна авторизация)" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /wp-json/wp/v2/posts" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="status" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${status}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">status</stringProp>
+                    </elementProp>
+                    <elementProp name="title" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${title}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">title</stringProp>
+                    </elementProp>
+                    <elementProp name="content" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${content}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">content</stringProp>
+                    </elementProp>
+                    <elementProp name="slug" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${slug}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">slug</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="date" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3076014">date</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;date&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The date the object was published, in the site&apos;s timezone.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="date_gmt" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1793075261">date_gmt</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;date_gmt&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The date the object was published, as GMT.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="slug" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3533483">slug</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="485193975">
+                      <stringProp name="197215711">Apache.JMeter</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1421605589">
+                      <stringProp name="1475729840">Gatling</stringProp>
+                    </collectionProp>
+                    <collectionProp name="941240055">
+                      <stringProp name="1258162375">Yandex.Tank</stringProp>
+                    </collectionProp>
+                    <collectionProp name="896548743">
+                      <stringProp name="3065388">curl</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1403271780">
+                      <stringProp name="3647359">wget</stringProp>
+                    </collectionProp>
+                    <collectionProp name="58041336">
+                      <stringProp name="3105">ab</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1436130970">
+                      <stringProp name="-1097442730">locust</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;slug&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;An alphanumeric identifier for the object unique to its type.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892481550">status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;publish&quot;,
+            &quot;future&quot;,
+            &quot;draft&quot;,
+            &quot;pending&quot;,
+            &quot;private&quot;
+          ],
+          &quot;description&quot;: &quot;A named status for the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="password" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1216985755">password</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;password&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;A password to protect access to the content and excerpt.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="title" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="110371416">title</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1104315865">
+                      <stringProp name="1219735347">Apache JMeter - Apache JMeter™</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2003931908">
+                      <stringProp name="-1286416416">Gatling Open-Source Load Testing - For DevOps and CI/CD</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2052288238">
+                      <stringProp name="-311996991">Yandex.Tank: Load and performance benchmark tool</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1767681403">
+                      <stringProp name="1088654434">curl - transfer a URL</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1719316734">
+                      <stringProp name="-942588186">Wget - The non-interactive network downloader.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1782296003">
+                      <stringProp name="-164061978">Ab - The Apache Software Foundation!</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1775796415">
+                      <stringProp name="148929177">Locust - A modern load testing framework</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;title&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The title for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="content" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="951530617">content</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1857482780">
+                      <stringProp name="-876073598">The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing Web Applications but has since expanded to other test functions. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1710702762">
+                      <stringProp name="1996718786">Gatling is a highly capable load testing tool. It is designed for ease of use, maintainability and high performance.  Out of the box, Gatling comes with excellent support of the HTTP protocol that makes it a tool of choice for load testing any HTTP server. As the core engine is actually protocol agnostic, it is perfectly possible to implement support for other protocols. For example, Gatling currently also ships JMS support.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-52477500">
+                      <stringProp name="696748886">Яндекс.Танк - это инструмент для проведения нагрузочного тестирования и анализа производительности веб-сервисов и приложений.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-2020322919">
+                      <stringProp name="-876441809">       curl  is  a  tool  to  transfer  data from or to a        server,  using  one  of  the  supported  protocols        (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP,        IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP,  SCP,        SFTP,  SMB,  SMBS,  SMTP, SMTPS, TELNET and TFTP).        The command  is  designed  to  work  without  user        interaction. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1833890043">
+                      <stringProp name="-523553653">   GNU Wget is a free utility for non-interactive        download of files from the Web.  It supports HTTP,        HTTPS, and FTP protocols, as well as retrieval        through HTTP proxies.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-2028470894">
+                      <stringProp name="-1672039479">ab is a tool for benchmarking your  Apache  Hyper‐        text   Transfer  Protocol  (HTTP)  server.  It  is        designed to give you an  impression  of  how  your        current  Apache  installation performs. This espe‐        cially shows you how many requests per second your        Apache installation is capable of serving. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="1289148966">
+                      <stringProp name="2120630241">Locust is an easy-to-use, distributed, user load testing tool. It is intended for load-testing web sites (or other systems) and figuring out how many concurrent users a system can handle.  The idea is that during a test, a swarm of locusts will attack your website. The behavior of each locust (or test user if you will) is defined by you and the swarming process is monitored from a web UI in real-time. This will help you battle test and identify bottlenecks in your code before letting real users in.</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;content&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The content for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="author" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1406328437">author</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;author&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The ID for the author of the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="excerpt" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1321359999">excerpt</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;excerpt&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The excerpt for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="featured_media" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1948015763">featured_media</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;featured_media&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The ID of the featured media for the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="comment_status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="71288274">comment_status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;comment_status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;open&quot;,
+            &quot;closed&quot;
+          ],
+          &quot;description&quot;: &quot;Whether or not comments are open on the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="ping_status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1131161439">ping_status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="670506606">
+                      <stringProp name="3417674">open</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1132125970">
+                      <stringProp name="-1357520532">closed</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;ping_status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;open&quot;,
+            &quot;closed&quot;
+          ],
+          &quot;description&quot;: &quot;Whether or not the object can be pinged.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="format" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1268779017">format</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-279426250">
+                      <stringProp name="1312628413">standard</stringProp>
+                    </collectionProp>
+                    <collectionProp name="965701731">
+                      <stringProp name="93111608">aside</stringProp>
+                    </collectionProp>
+                    <collectionProp name="859057432">
+                      <stringProp name="3052376">chat</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1895430118">
+                      <stringProp name="-196315310">gallery</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-361242458">
+                      <stringProp name="3321850">link</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1320181763">
+                      <stringProp name="100313435">image</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1179824164">
+                      <stringProp name="107953788">quote</stringProp>
+                    </collectionProp>
+                    <collectionProp name="12604477">
+                      <stringProp name="-892481550">status</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1092460729">
+                      <stringProp name="112202875">video</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1142089275">
+                      <stringProp name="93166550">audio</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;format&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;standard&quot;,
+            &quot;aside&quot;,
+            &quot;chat&quot;,
+            &quot;gallery&quot;,
+            &quot;link&quot;,
+            &quot;image&quot;,
+            &quot;quote&quot;,
+            &quot;status&quot;,
+            &quot;video&quot;,
+            &quot;audio&quot;
+          ],
+          &quot;description&quot;: &quot;The format for the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="meta" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3347973">meta</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;meta&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Meta fields.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="sticky" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892259863">sticky</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1902774694">
+                      <stringProp name="3569038">true</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-544885953">
+                      <stringProp name="97196323">false</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;sticky&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Whether or not the object should be treated as sticky.&quot;,
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="template" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1321546630">template</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;template&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;&quot;
+          ],
+          &quot;description&quot;: &quot;The theme file to use to display the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="categories" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1296516636">categories</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;categories&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The terms assigned to the object in the category taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="tags" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3552281">tags</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;tags&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The terms assigned to the object in the post_tag taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        }
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/posts/{post_ID}" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Описание" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="OPTIONS /wp-json/wp/v2/posts/{post_ID}" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts/1</stringProp>
+                <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Получение записи" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /wp-json/wp/v2/posts/{post_ID}" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="id" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${id}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">id</stringProp>
+                    </elementProp>
+                    <elementProp name="context" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${context}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">context</stringProp>
+                    </elementProp>
+                    <elementProp name="password" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${password}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">password</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts/${post_ID}</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="post_ID *" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-391212774">post_ID</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="2060169747">
+                      <stringProp name="-1215713952">${__counter(FALSE,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Method Parameter: post_ID
+$post_ID 	(int) 	The post ID</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="id" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3355">id</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1393153531">
+                      <stringProp name="-1000812422">${post_ID}</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2060169747">
+                      <stringProp name="-1215713952">${__counter(FALSE,)}</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-651751215">
+                      <stringProp name="598358811">${__jexl3(1+1*vars.get(&quot;post_ID&quot;),)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments"> Уникальный идентификатор записи
+
+       &quot;id&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Unique identifier for the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="context" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="951530927">context</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1503566020">
+                      <stringProp name="3619493">view</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1732227201">
+                      <stringProp name="96620249">embed</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1754152927">
+                      <stringProp name="3108362">edit</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Область, в которой выполняется запрос; определяет поля, присутствующие в ответе.
+Может быть view, embed, edit.
+По умолчанию: view
+ 
+       &quot;context&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: &quot;view&quot;,
+          &quot;enum&quot;: [
+            &quot;view&quot;,
+            &quot;embed&quot;,
+            &quot;edit&quot;
+          ],
+          &quot;description&quot;: &quot;Scope under which the request is made; determines fields present in response.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="password" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1216985755">password</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">Пароль для получения доступа к защищенной паролем записи.
+
+        &quot;password&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The password for the post if it is password protected.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Обновление записи * (нужна авторизация)" enabled="true">
+              <stringProp name="TestPlan.comments">
+curl --user boss:boss -X POST http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts/1 -d &apos;{&quot;title&quot;:&quot;My New Title&quot;}&apos;
+</stringProp>
+            </GenericController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST|PUT|PATCH /wp-json/wp/v2/posts/{post_ID}" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="title" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">Hello, World ${post_ID}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">title</stringProp>
+                    </elementProp>
+                    <elementProp name="status" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${status}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">status</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts/${post_ID}</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="post_ID *" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-391212774">post_ID</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="2060169747">
+                      <stringProp name="-1215713952">${__counter(FALSE,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments"> Уникальный идентификатор записи
+
+Method Parameter: post_ID
+$post_ID 	(int) 	The post ID</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="id" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3355">id</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1393153531">
+                      <stringProp name="-1000812422">${post_ID}</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2060169747">
+                      <stringProp name="-1215713952">${__counter(FALSE,)}</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-651751215">
+                      <stringProp name="598358811">${__jexl3(1+1*vars.get(&quot;post_ID&quot;),)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments"> Уникальный идентификатор записи
+
+       &quot;id&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Unique identifier for the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="date" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3076014">date</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;date&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The date the object was published, in the site&apos;s timezone.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="date_gmt" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1793075261">date_gmt</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;date_gmt&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The date the object was published, as GMT.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="slug" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3533483">slug</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="485193975">
+                      <stringProp name="197215711">Apache.JMeter</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1421605589">
+                      <stringProp name="1475729840">Gatling</stringProp>
+                    </collectionProp>
+                    <collectionProp name="941240055">
+                      <stringProp name="1258162375">Yandex.Tank</stringProp>
+                    </collectionProp>
+                    <collectionProp name="896548743">
+                      <stringProp name="3065388">curl</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1403271780">
+                      <stringProp name="3647359">wget</stringProp>
+                    </collectionProp>
+                    <collectionProp name="58041336">
+                      <stringProp name="3105">ab</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1436130970">
+                      <stringProp name="-1097442730">locust</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;slug&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;An alphanumeric identifier for the object unique to its type.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892481550">status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                    <collectionProp name="741118382">
+                      <stringProp name="-235365105">publish</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;publish&quot;,
+            &quot;future&quot;,
+            &quot;draft&quot;,
+            &quot;pending&quot;,
+            &quot;private&quot;
+          ],
+          &quot;description&quot;: &quot;A named status for the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="password" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1216985755">password</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;password&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;A password to protect access to the content and excerpt.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="title" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="110371416">title</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1104315865">
+                      <stringProp name="1219735347">Apache JMeter - Apache JMeter™</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2003931908">
+                      <stringProp name="-1286416416">Gatling Open-Source Load Testing - For DevOps and CI/CD</stringProp>
+                    </collectionProp>
+                    <collectionProp name="2052288238">
+                      <stringProp name="-311996991">Yandex.Tank: Load and performance benchmark tool</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1767681403">
+                      <stringProp name="1088654434">curl - transfer a URL</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1719316734">
+                      <stringProp name="-942588186">Wget - The non-interactive network downloader.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1782296003">
+                      <stringProp name="-164061978">Ab - The Apache Software Foundation!</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1775796415">
+                      <stringProp name="148929177">Locust - A modern load testing framework</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;title&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The title for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="content" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="951530617">content</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1857482780">
+                      <stringProp name="-876073598">The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing Web Applications but has since expanded to other test functions. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1710702762">
+                      <stringProp name="1996718786">Gatling is a highly capable load testing tool. It is designed for ease of use, maintainability and high performance.  Out of the box, Gatling comes with excellent support of the HTTP protocol that makes it a tool of choice for load testing any HTTP server. As the core engine is actually protocol agnostic, it is perfectly possible to implement support for other protocols. For example, Gatling currently also ships JMS support.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-52477500">
+                      <stringProp name="696748886">Яндекс.Танк - это инструмент для проведения нагрузочного тестирования и анализа производительности веб-сервисов и приложений.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-2020322919">
+                      <stringProp name="-876441809">       curl  is  a  tool  to  transfer  data from or to a        server,  using  one  of  the  supported  protocols        (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP,        IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP,  SCP,        SFTP,  SMB,  SMBS,  SMTP, SMTPS, TELNET and TFTP).        The command  is  designed  to  work  without  user        interaction. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1833890043">
+                      <stringProp name="-523553653">   GNU Wget is a free utility for non-interactive        download of files from the Web.  It supports HTTP,        HTTPS, and FTP protocols, as well as retrieval        through HTTP proxies.</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-2028470894">
+                      <stringProp name="-1672039479">ab is a tool for benchmarking your  Apache  Hyper‐        text   Transfer  Protocol  (HTTP)  server.  It  is        designed to give you an  impression  of  how  your        current  Apache  installation performs. This espe‐        cially shows you how many requests per second your        Apache installation is capable of serving. </stringProp>
+                    </collectionProp>
+                    <collectionProp name="1289148966">
+                      <stringProp name="2120630241">Locust is an easy-to-use, distributed, user load testing tool. It is intended for load-testing web sites (or other systems) and figuring out how many concurrent users a system can handle.  The idea is that during a test, a swarm of locusts will attack your website. The behavior of each locust (or test user if you will) is defined by you and the swarming process is monitored from a web UI in real-time. This will help you battle test and identify bottlenecks in your code before letting real users in.</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;content&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The content for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="author" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1406328437">author</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;author&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The ID for the author of the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="excerpt" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1321359999">excerpt</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;excerpt&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The excerpt for the object.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="featured_media" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1948015763">featured_media</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;featured_media&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The ID of the featured media for the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="comment_status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="71288274">comment_status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;comment_status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;open&quot;,
+            &quot;closed&quot;
+          ],
+          &quot;description&quot;: &quot;Whether or not comments are open on the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="ping_status" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1131161439">ping_status</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="670506606">
+                      <stringProp name="3417674">open</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1132125970">
+                      <stringProp name="-1357520532">closed</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;ping_status&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;open&quot;,
+            &quot;closed&quot;
+          ],
+          &quot;description&quot;: &quot;Whether or not the object can be pinged.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="format" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1268779017">format</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-279426250">
+                      <stringProp name="1312628413">standard</stringProp>
+                    </collectionProp>
+                    <collectionProp name="965701731">
+                      <stringProp name="93111608">aside</stringProp>
+                    </collectionProp>
+                    <collectionProp name="859057432">
+                      <stringProp name="3052376">chat</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1895430118">
+                      <stringProp name="-196315310">gallery</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-361242458">
+                      <stringProp name="3321850">link</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1320181763">
+                      <stringProp name="100313435">image</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1179824164">
+                      <stringProp name="107953788">quote</stringProp>
+                    </collectionProp>
+                    <collectionProp name="12604477">
+                      <stringProp name="-892481550">status</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-1092460729">
+                      <stringProp name="112202875">video</stringProp>
+                    </collectionProp>
+                    <collectionProp name="1142089275">
+                      <stringProp name="93166550">audio</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;format&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;standard&quot;,
+            &quot;aside&quot;,
+            &quot;chat&quot;,
+            &quot;gallery&quot;,
+            &quot;link&quot;,
+            &quot;image&quot;,
+            &quot;quote&quot;,
+            &quot;status&quot;,
+            &quot;video&quot;,
+            &quot;audio&quot;
+          ],
+          &quot;description&quot;: &quot;The format for the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="meta" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3347973">meta</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;meta&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Meta fields.&quot;,
+          &quot;type&quot;: &quot;object&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="sticky" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-892259863">sticky</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="1902774694">
+                      <stringProp name="3569038">true</stringProp>
+                    </collectionProp>
+                    <collectionProp name="-544885953">
+                      <stringProp name="97196323">false</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;sticky&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Whether or not the object should be treated as sticky.&quot;,
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="template" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-1321546630">template</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;template&quot;: {
+          &quot;required&quot;: false,
+          &quot;enum&quot;: [
+            &quot;&quot;
+          ],
+          &quot;description&quot;: &quot;The theme file to use to display the object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="categories" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="1296516636">categories</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;categories&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The terms assigned to the object in the category taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="tags" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3552281">tags</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="25080">
+                      <stringProp name="0"></stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;tags&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;The terms assigned to the object in the post_tag taxonomy.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+          }
+        }
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Удаление записи * (нужна авторизация)" enabled="true"/>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DELETE /wp-json/wp/v2/posts/{post_ID}" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="force" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                      <stringProp name="Argument.value">${force}</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">force</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">/wp-json/wp/v2/posts/${post_ID}</stringProp>
+                <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="post_ID *" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="-391212774">post_ID</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1891793765">
+                      <stringProp name="-1895152231">${__Random(2,10,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments"> Уникальный идентификатор записи
+
+Method Parameter: post_ID
+$post_ID 	(int) 	The post ID</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="id" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="3355">id</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-1891793765">
+                      <stringProp name="-1895152231">${__Random(2,10,)}</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments"> Уникальный идентификатор записи
+
+       &quot;id&quot;: {
+          &quot;required&quot;: false,
+          &quot;description&quot;: &quot;Unique identifier for the object.&quot;,
+          &quot;type&quot;: &quot;integer&quot;
+        },
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+                <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="force" enabled="true">
+                  <collectionProp name="UserParameters.names">
+                    <stringProp name="97618667">force</stringProp>
+                  </collectionProp>
+                  <collectionProp name="UserParameters.thread_values">
+                    <collectionProp name="-544885953">
+                      <stringProp name="97196323">false</stringProp>
+                    </collectionProp>
+                  </collectionProp>
+                  <boolProp name="UserParameters.per_iteration">false</boolProp>
+                  <stringProp name="TestPlan.comments">        &quot;force&quot;: {
+          &quot;required&quot;: false,
+          &quot;default&quot;: false,
+          &quot;description&quot;: &quot;Whether to bypass trash and force deletion.&quot;,
+          &quot;type&quot;: &quot;boolean&quot;
+        }
+</stringProp>
+                </UserParameters>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Страницы (pages) /wp-json/wp/v2/pages" enabled="true"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/pages" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Список страниц" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Создание страницы" enabled="true"/>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/pages/{id}" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Получение страницы" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Обновление страницы" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Удаление страницы" enabled="true"/>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Комментарии (comments) /wp-json/wp/v2/comments" enabled="true"/>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/comments" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Список комментариев" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Создание комментария" enabled="true"/>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="/wp/v2/comments/{id}" enabled="true"/>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Получение комментария" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Обновление комментария" enabled="true"/>
+            <hashTree/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Удаление комментария" enabled="true"/>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,18 @@
+Плагины:
+bzm - Randmo CSV DataSet Config
+
+Tools:
+Simple Table Server
+
+Portable версии программ
+
+Поднятие локального git-сервера
+
+
+Настройки
+-J"HTTPResponse.parsers=htmlParser wmlParser"
+
+httpsampler.ignore_failed_embedded_resourses=true
+
+CookieManager.check.cookies=false
+
