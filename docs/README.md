@@ -6,7 +6,7 @@
 ## [Подготовка тестового стенда к работе](/1_1_stand.md)
 
 
-## [Использование ab, wget, curl, tcpreplay для отправки запросов](/1.1.Simple.Tools.curl.wget.ab/term.html)
+## [Использование ab, wget, curl, tcpreplay для отправки запросов](/term.html)
 
 <!--
 
