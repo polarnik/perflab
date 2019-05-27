@@ -1,0 +1,10 @@
+{
+  "simulation": "info.ragozin.loadlab.wp.simulations.RandomPostCommentRPS",
+  "simulationId": "randompostcommentrps",
+  "start": 1558943469238,
+  "description": "",
+  "scenarios": ["RandomPostCommentRPS"],
+  "assertions": [
+
+  ]
+}

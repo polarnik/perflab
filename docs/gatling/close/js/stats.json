@@ -1,0 +1,317 @@
+{
+  "type": "GROUP",
+"name": "Global Information",
+"path": "",
+"pathFormatted": "group_missing-name-b06d1",
+"stats": {
+    "name": "Global Information",
+    "numberOfRequests": {
+        "total": 525,
+        "ok": 521,
+        "ko": 4
+    },
+    "minResponseTime": {
+        "total": 26,
+        "ok": 26,
+        "ko": 65
+    },
+    "maxResponseTime": {
+        "total": 2448,
+        "ok": 2448,
+        "ko": 74
+    },
+    "meanResponseTime": {
+        "total": 411,
+        "ok": 414,
+        "ko": 68
+    },
+    "standardDeviation": {
+        "total": 451,
+        "ok": 452,
+        "ko": 4
+    },
+    "percentiles1": {
+        "total": 262,
+        "ok": 263,
+        "ko": 67
+    },
+    "percentiles2": {
+        "total": 558,
+        "ok": 562,
+        "ko": 69
+    },
+    "percentiles3": {
+        "total": 1511,
+        "ok": 1515,
+        "ko": 73
+    },
+    "percentiles4": {
+        "total": 1897,
+        "ok": 1897,
+        "ko": 74
+    },
+    "group1": {
+        "name": "t < 800 ms",
+        "count": 455,
+        "percentage": 87
+    },
+    "group2": {
+        "name": "800 ms < t < 1200 ms",
+        "count": 21,
+        "percentage": 4
+    },
+    "group3": {
+        "name": "t > 1200 ms",
+        "count": 45,
+        "percentage": 9
+    },
+    "group4": {
+        "name": "failed",
+        "count": 4,
+        "percentage": 1
+    },
+    "meanNumberOfRequestsPerSecond": {
+        "total": 8.333333333333334,
+        "ok": 8.26984126984127,
+        "ko": 0.06349206349206349
+    }
+},
+"contents": {
+"req_-wp-v2-posts--p-7ffd2": {
+        "type": "REQUEST",
+        "name": "/wp/v2/posts?{page} (GET)",
+"path": "/wp/v2/posts?{page} (GET)",
+"pathFormatted": "req_-wp-v2-posts--p-7ffd2",
+"stats": {
+    "name": "/wp/v2/posts?{page} (GET)",
+    "numberOfRequests": {
+        "total": 175,
+        "ok": 175,
+        "ko": 0
+    },
+    "minResponseTime": {
+        "total": 96,
+        "ok": 96,
+        "ko": 0
+    },
+    "maxResponseTime": {
+        "total": 2448,
+        "ok": 2448,
+        "ko": 0
+    },
+    "meanResponseTime": {
+        "total": 718,
+        "ok": 718,
+        "ko": 0
+    },
+    "standardDeviation": {
+        "total": 609,
+        "ok": 609,
+        "ko": 0
+    },
+    "percentiles1": {
+        "total": 348,
+        "ok": 348,
+        "ko": 0
+    },
+    "percentiles2": {
+        "total": 1219,
+        "ok": 1219,
+        "ko": 0
+    },
+    "percentiles3": {
+        "total": 1817,
+        "ok": 1817,
+        "ko": 0
+    },
+    "percentiles4": {
+        "total": 2112,
+        "ok": 2112,
+        "ko": 0
+    },
+    "group1": {
+        "name": "t < 800 ms",
+        "count": 112,
+        "percentage": 64
+    },
+    "group2": {
+        "name": "800 ms < t < 1200 ms",
+        "count": 18,
+        "percentage": 10
+    },
+    "group3": {
+        "name": "t > 1200 ms",
+        "count": 45,
+        "percentage": 26
+    },
+    "group4": {
+        "name": "failed",
+        "count": 0,
+        "percentage": 0
+    },
+    "meanNumberOfRequestsPerSecond": {
+        "total": 2.7777777777777777,
+        "ok": 2.7777777777777777,
+        "ko": 0
+    }
+}
+    },"req_-wp-v2-posts-pa-ad250": {
+        "type": "REQUEST",
+        "name": "/wp/v2/posts?page/{id} (GET)",
+"path": "/wp/v2/posts?page/{id} (GET)",
+"pathFormatted": "req_-wp-v2-posts-pa-ad250",
+"stats": {
+    "name": "/wp/v2/posts?page/{id} (GET)",
+    "numberOfRequests": {
+        "total": 175,
+        "ok": 175,
+        "ko": 0
+    },
+    "minResponseTime": {
+        "total": 26,
+        "ok": 26,
+        "ko": 0
+    },
+    "maxResponseTime": {
+        "total": 830,
+        "ok": 830,
+        "ko": 0
+    },
+    "meanResponseTime": {
+        "total": 244,
+        "ok": 244,
+        "ko": 0
+    },
+    "standardDeviation": {
+        "total": 220,
+        "ok": 220,
+        "ko": 0
+    },
+    "percentiles1": {
+        "total": 128,
+        "ok": 128,
+        "ko": 0
+    },
+    "percentiles2": {
+        "total": 418,
+        "ok": 418,
+        "ko": 0
+    },
+    "percentiles3": {
+        "total": 618,
+        "ok": 618,
+        "ko": 0
+    },
+    "percentiles4": {
+        "total": 748,
+        "ok": 748,
+        "ko": 0
+    },
+    "group1": {
+        "name": "t < 800 ms",
+        "count": 174,
+        "percentage": 99
+    },
+    "group2": {
+        "name": "800 ms < t < 1200 ms",
+        "count": 1,
+        "percentage": 1
+    },
+    "group3": {
+        "name": "t > 1200 ms",
+        "count": 0,
+        "percentage": 0
+    },
+    "group4": {
+        "name": "failed",
+        "count": 0,
+        "percentage": 0
+    },
+    "meanNumberOfRequestsPerSecond": {
+        "total": 2.7777777777777777,
+        "ok": 2.7777777777777777,
+        "ko": 0
+    }
+}
+    },"req_-wp-json-wp-v2--59f39": {
+        "type": "REQUEST",
+        "name": "/wp-json/wp/v2/comments (POST)",
+"path": "/wp-json/wp/v2/comments (POST)",
+"pathFormatted": "req_-wp-json-wp-v2--59f39",
+"stats": {
+    "name": "/wp-json/wp/v2/comments (POST)",
+    "numberOfRequests": {
+        "total": 175,
+        "ok": 171,
+        "ko": 4
+    },
+    "minResponseTime": {
+        "total": 33,
+        "ok": 33,
+        "ko": 65
+    },
+    "maxResponseTime": {
+        "total": 801,
+        "ok": 801,
+        "ko": 74
+    },
+    "meanResponseTime": {
+        "total": 271,
+        "ok": 276,
+        "ko": 68
+    },
+    "standardDeviation": {
+        "total": 225,
+        "ok": 225,
+        "ko": 4
+    },
+    "percentiles1": {
+        "total": 186,
+        "ok": 191,
+        "ko": 67
+    },
+    "percentiles2": {
+        "total": 443,
+        "ok": 448,
+        "ko": 69
+    },
+    "percentiles3": {
+        "total": 690,
+        "ok": 691,
+        "ko": 73
+    },
+    "percentiles4": {
+        "total": 775,
+        "ok": 776,
+        "ko": 74
+    },
+    "group1": {
+        "name": "t < 800 ms",
+        "count": 169,
+        "percentage": 97
+    },
+    "group2": {
+        "name": "800 ms < t < 1200 ms",
+        "count": 2,
+        "percentage": 1
+    },
+    "group3": {
+        "name": "t > 1200 ms",
+        "count": 0,
+        "percentage": 0
+    },
+    "group4": {
+        "name": "failed",
+        "count": 4,
+        "percentage": 2
+    },
+    "meanNumberOfRequestsPerSecond": {
+        "total": 2.7777777777777777,
+        "ok": 2.7142857142857144,
+        "ko": 0.06349206349206349
+    }
+}
+    }
+}
+
+}
