@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Дорожная карта инженера по производительности</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/material/styles/styles.css">
+	<link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --slide-width: 1280px;
+            --color-key: #ffcc00;
+            --color-yellow: #ffcc00;
+        }
+    </style>	
+</head>
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Дорожная картаинженера по производительности</h1>
+		<p><a href="https://polarnik.github.io">Вячеслав Смирнов</a></p>
+	</header>
+
+	<section class="clear slide" id="title"><div>
+		<h2>Дорожная карта<br>инженера<br>по производительности</h2>
+		<p>Вячеслав Смирнов</p>
+		<p>owasp@yandex.ru</p>
+		<style>
+			#title h2 {
+				position: relative;
+				top: calc(var(--slide-height) / 10);
+				left: calc(var(--slide-width) / 4);
+				font-size: calc(var(--slide-height) / 12);
+			}
+			#title p {
+				position: relative;
+				top: 150px;
+				left: calc(var(--slide-width) / 4);
+				font-size: calc(var(--slide-height) / 20);
+				line-height: calc(var(--slide-height) / 15);
+			}
+			#title div div {
+				width: 250px;
+				height: 250px;
+				position: relative;
+				top: -120px;
+				left: 575px;
+				background: #A6CE38;
+				background: red;
+				border-radius: 50%;
+				white-space: nowrap;
+				text-align: center;
+			}
+			#title div div span {
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+			#title div div img {
+				z-index: auto;
+				vertical-align: middle;
+				position: static;
+			}
+		</style>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/DSC05447.jpg">
+			<figcaption class="copyright right white">
+				Поход, Терскей
+			</figcaption>			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/DSC05484.jpg">
+			<figcaption class="copyright right white">
+				Поход, Терскей
+			</figcaption>			
+		</figure>
+	</div></section>	
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/DSC05484-2.jpg">
+			<figcaption class="copyright right white">
+				Поход, Терскей
+			</figcaption>			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Дорожная карта</h2>
+		<p class="next">
+			Задача, технология
+		</p>
+		<p class="next">
+			Учёт, отчёты, процесс
+		</p>		
+		<p class="next">
+			Команда
+		</p>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Задача, технология<br/>С чего всё начинается?</h2>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Задача</h2>
+
+			<p><mark class="green">Цели, требования, методика</mark></p>
+			<p class="next">Этапы работы</p>
+			<p class="next">Длительность</p>
+
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Задача. Пример с инструментами</h2>
+
+			<ul>
+					BenchMark
+					<li>httperf</li>
+					<li>ab</li>
+					<li>wrk2</li>
+					<li>curl, wget</li>
+					<li>fio, dd, ...</li>
+			</ul>
+
+			<ul>
+					Тест производительности
+					<li>Apache.JMeter</li>
+					<li>Gatling</li>
+					<li>Yandex.Tank</li>
+					<li>Locust</li>
+			</ul>
+
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Технология подбирается под задачу</h2>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Технология</h2>
+		<ul>
+			<p><mark class="green">Протокол, язык разработки</mark></p>
+			<p class="next"><mark class="yellow">Удобство, опыт работы</mark></p>
+			<p class="next">Стоимость</p>
+		</ul>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Технология. Пример с инструментами</h2>
+			<h3>HTTP</h3>
+			<ul>
+					
+					<li>Apache.JMeter</li>
+					<li>Gatling</li>
+					<li>Yandex.Tank</li>
+					<li>Locust</li>
+			</ul>			
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Технология. Пример с инструментами</h2>
+			<h3>HTTP, WCF (Microsoft), SOAP/MSBin1</h3>
+			<ul>
+					
+					<li>Apache.JMeter, jni4net</li>
+					<li>Microsoft Visual Studio Enterprise</li>
+					<li>Microfocus/HP Load Runner</li>
+			</ul>			
+	</div></section>	
+
+	<section class="clear slide"><div>
+		<h2>Технология. Пример с инструментами</h2>
+
+			<h3>HTTP/2</h3>
+			<ul>
+					
+					<p><mark class="green">curl</mark>, <mark class="red">wget</mark></p>
+					<p><mark class="green">wrk2</mark>, <mark class="red">ab</mark></p>
+					<p>Apache.JMeter, HTTP/2 Plugin</p>
+					<p>Gatling</p>
+					
+			</ul>			
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Технология. Пример с инструментами</h2>
+		<h3>UDP, Radius, данные из pcap-файла</h3>
+			<ul>
+					
+					<p>pcap, scapy/pypcap, Python, Locust</p>
+					<p class="next">pcap, Pcap4J, Java/Groovy, Apache.JMeter, <mark>JUnit Sampler</mark>/<mark>JSR-223 Samper</mark></p>
+					<p class="next">pcap, scapy/pypcap, Python, pcap, tcpreplay, Apache.JMeter, <mark>OS Process Sampler</mark></p>
+					<p class="next">pcap, Pcap4J, Java/Scala, Gatling, <mark>Gatling Plugin</mark></p>
+			</ul>
+		
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Подобное притягивается к подобному</h2>
+	</div></section>
+
+
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Учёт, отчёты, процесс<br/>Как всё происходит?</h2>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/process.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/script.1.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/report.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/process.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/script.2.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/telegraf.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/grafana.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/process.png">			
+		</figure>
+	</div></section>
+
+
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/logstash-browser-error.png">		
+			<figcaption class="copyright right white">
+				<a href="https://github.com/monitoringartist/grafana-elasticsearch-dashboards">
+					Grafana dashboards for Elasticsearch datasource
+				</a>
+			</figcaption>		
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/process.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/Samplers.HTTP.Request.keepAlive._.jmeter.http.static.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/process.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/ci_cd_plans.png">			
+		</figure>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Детальность проработки задачи<br/>зависит от этапа развития проекта</h2>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Команда<br/>Что движет?</h2>
+	</div></section>
+
+	<section class="clear slide"><div>
+		<h2>Найдите кого-то ещё</h2>
+		<p class="next">Команда</p>
+		<p class="next">Семья</p>	
+		<p class="next">Напарник</p>	
+		<p class="next">Сообщество</p>	
+	</div></section>	
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="w cover" src="images/2/DSC_6656.jpg">			
+		</figure>
+	</div></section>	
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Развивайтесь</h2>
+	</div></section>
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/final-1.png">			
+		</figure>
+	</div></section>	
+
+	<section class="clear slide"><div>		
+		<figure>
+			<img class="h cover" src="images/2/final-2.png">			
+		</figure>
+	</div></section>	
+
+	<section class="clear slide"><div>
+		<h2>Спасибо!</h2>
+		<p>Закладки (<a href="https://bra.in/4pK3rp">bra.in/4pK3rp</a>)</p>
+		<p>Слайды (<a href="https://github.com/polarnik/perflab">polarnik/perflab</a>)</p>
+		<p>Примеры кода: jmeter, gatling (<a href="https://github.com/polarnik/perflab_code">polarnik/perflab_code</a>)</p>
+		<p>Примеры кода: locust, tank (<a href="https://github.com/aragozin/loadlab_demo">aragozin/loadlab_demo</a>)</p>
+		<p>Сценарий: gatling (<a href="https://github.com/aragozin/loadlab_demo">aragozin/loadlab_demo</a>)</p>
+		<p>Окружение (<a href="https://github.com/aragozin/loadlab_vm">aragozin/loadlab_vm</a>)</p>
+	</div></section>
+
+	<section class="clear slide" id="contacts"><div>
+		<h2>Алексей Рагозин</h2>
+		<h2>Вячеслав Смирнов</h2>
+		<div><span></span><h2>Спасибо!</h2></div>
+		<style>
+			#contacts h2 {
+				position: relative;
+				top: calc(var(--slide-height) / 3.06);
+				left: calc(var(--slide-width) / 12);
+				font-size: calc(var(--slide-height) / 15);
+			}
+			#contacts p {
+				position: relative;
+				top: calc(var(--slide-height) / 2.7);
+				left: calc(var(--slide-width) / 12);
+			}
+			#contacts div div {
+				width: calc(var(--slide-width) / 4);
+				height: calc(var(--slide-width) / 4);
+				position: absolute;
+				top: calc(var(--slide-height) / 4);
+				left: calc(var(--slide-width) * (8/9 - 1/4));
+				background: #ffed00;
+				border-radius: 50%;
+				white-space: nowrap;
+				text-align: center;
+				vertical-align: middle;
+			}
+			#contacts div div span {
+				display: inline-block;
+				height: 90%;
+				vertical-align: middle;
+			}
+			#contacts div div h2 {
+				z-index: auto;
+				vertical-align: middle;
+				position: static;
+				display: inline-block;
+				margin-bottom: 0;
+				color: #000;
+			}
+		</style>
+	</div></section>
+
+	<div class="progress"></div>
+
+	<script src="shower/shower.min.js"></script>
+</body>
+</html>

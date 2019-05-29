@@ -22,11 +22,6 @@ REST-API WordPress 5.1.1:
 * <http://wp.loadlab.ragozin.info/wp-json/>
 
 
-Также у WordPress есть демо-стенд с данными только для чтения:
-
-* <https://demo.wp-api.org/wp-json/>
-* <https://demo.wp-api.org/> - веб-интерфейс
-
 
 ### Документация
 
@@ -42,11 +37,11 @@ REST-API WordPress 5.1.1:
 <http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts?_method=OPTIONS>
 
 ```
-curl -X GET     'http://lab-wp.ragozin.info/wp-json/wp/v2/'      | jq '."routes"."/wp/v2/users"'
+curl -X GET     'http://wp.loadlab.ragozin.info/wp-json/wp/v2/'      | jq '."routes"."/wp/v2/users"'
 
-curl -X OPTIONS 'http://lab-wp.ragozin.info/wp-json/wp/v2/users'
+curl -X OPTIONS 'http://wp.loadlab.ragozin.info/wp-json/wp/v2/users'
 
-curl -X OPTIONS 'http://lab-wp.ragozin.info/wp-json/wp/v2/users' | jq
+curl -X OPTIONS 'http://wp.loadlab.ragozin.info/wp-json/wp/v2/users' | jq
 ```
 
 Но гораздо удобнее смотреть документацию в виде веб-страниц. Для этого на сайте wordpress.com есть раздел с документацией:
@@ -61,7 +56,7 @@ curl -X OPTIONS 'http://lab-wp.ragozin.info/wp-json/wp/v2/users' | jq
 
 #### Примечание про префикс `/sites/$site/` в <https://developer.wordpress.com/docs/api/>
 
-При чтении документации с сайта developer.wordpress.com нужно учитывать, что префикс `/sites/$site/` на стенде lab-wp.ragozin.info отсуствует и не нужен.
+При чтении документации с сайта developer.wordpress.com нужно учитывать, что префикс `/sites/$site/` на стенде wp.loadlab.ragozin.info отсуствует и не нужен.
 И поэтому читая документацию на метод
 
 * <https://developer.wordpress.com/docs/api/1.1/get/sites/%24site/posts/>
@@ -82,22 +77,22 @@ curl -X OPTIONS 'http://lab-wp.ragozin.info/wp-json/wp/v2/users' | jq
 | Parameter| Value|
 | -------- | ---- |
 | Method |	GET |
-|URL |	http://lab-wp.ragozin.info/wp-json/wp/v2**<u>/posts/</u>**|
+|URL |	http://wp.loadlab.ragozin.info/wp-json/wp/v2**<u>/posts/</u>**|
 |Requires authentication? |	No |
 
 
 Пример:
 
 ```
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/posts/
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts/
 ```
 Пример с формированием вывода:
 ```
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/posts/ | jq
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts/ | jq
 ```
 Пример с выводом только полей `title.rendered`, полученных с помощью JSON Path выражения и утилиты `jq`:
 ```
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/posts | jq '.[] | .title.rendered'
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts | jq '.[] | .title.rendered'
 ```
 
 ### Аутентификация
@@ -110,13 +105,13 @@ curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/posts | jq '.[] | .title.re
 | Parameter| Value|
 | -------- | ---- |
 | Method |	GET |
-|URL |	http://lab-wp.ragozin.info/wp-json/wp/v2**<u>/users/</u>**|
+|URL |	http://wp.loadlab.ragozin.info/wp-json/wp/v2**<u>/users/</u>**|
 |Requires authentication? |	<u>**Yes**</u>|
 
 Аутентификация может работать странно, но она есть:
 
-* <http://lab-wp.ragozin.info/wp-json/wp/v2/users/1> для просмотра информации об администраторе сайта аутентифиация не требуется.
-* <http://lab-wp.ragozin.info/wp-json/wp/v2/users/2> для просмотра информации о другом пользователе сайта нужна аутентификация.
+* <http://wp.loadlab.ragozin.info/wp-json/wp/v2/users/1> для просмотра информации об администраторе сайта аутентифиация не требуется.
+* <http://wp.loadlab.ragozin.info/wp-json/wp/v2/users/2> для просмотра информации о другом пользователе сайта нужна аутентификация.
 
 #### Basic-аутентификация
 
@@ -124,11 +119,11 @@ curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/posts | jq '.[] | .title.re
 
 ```
 # json:
-curl --user boss:boss -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users
+curl --user boss:boss -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users
 # json c форматированием:
-curl --user boss:boss -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users | jq
+curl --user boss:boss -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users | jq
 # json только с полями id и name:
-curl --user boss:boss -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users | jq '.[] | {id:.id, name: .name}'
+curl --user boss:boss -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users | jq '.[] | {id:.id, name: .name}'
 ```
 
 Это Basic-аутентификация, также она может быть выполнена следующим способом, через заголовок запроса Authorization, в значении которого указывается тип Basic и через пробел значение пары "логин:пароль", закодированные в base64:
@@ -136,15 +131,15 @@ curl --user boss:boss -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users | jq
 ```
 # token = Ym9zczpib3NzCg== (с переводом строки)
 token=`echo "boss:boss" | base64`
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic $token"
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic $token"
 
 # token = Ym9zczpib3Nz     (без перевода строки)
 token=`echo -n "boss:boss"| base64`
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic $token"
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic $token"
 
 # Или можно в явном виде передать строку boss:boss закодированную в base64:
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic Ym9zczpib3NzCg=="
-curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic Ym9zczpib3Nz"
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic Ym9zczpib3NzCg=="
+curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization: Basic Ym9zczpib3Nz"
 ```
 
 
@@ -160,7 +155,7 @@ curl -X GET http://lab-wp.ragozin.info/wp-json/wp/v2/users -H "Authorization: Ba
 | Parameter                | Value                                                       |
 | -------------------------| ----------------------------------------------------------- |
 | Method                   |GET                                                          |
-| URL                      |http://lab-wp.ragozin.info/wp-json/wp/v2**<u>/posts/new</u>**|
+| URL                      |http://wp.loadlab.ragozin.info/wp-json/wp/v2**<u>/posts/new</u>**|
 | Requires authentication? |<u>**Yes**</u>                                               |
 
 
