@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Учебный курс по Gatling. Введение и REST API</title>
+	<meta charset="utf-8">
+	<meta name="viewport"Учебный курс по Gatling content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/material/styles/styles.css">
+	<link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --slide-width: 1280px;
+            --color-key: #ffcc00;
+            --color-yellow: #ffcc00;
+        }
+    </style>	
+</head>
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Учебный курс по Gatling. Введение и REST API</h1>
+		<p><a href="https://polarnik.github.io">Вячеслав Смирнов</a></p>
+	</header>
+
+	<section class="clear slide" id="title"><div>
+		<h2>Учебный курс по Gatling</h2>
+		<h2>Введение и REST API</h2>
+
+		<p>Алексей Колтаков</p>
+		<p>Вячеслав Смирнов</p>
+
+		<style>
+			#title h2 {
+				position: relative;
+				top: calc(var(--slide-height) / 10);
+				left: calc(var(--slide-width) / 4);
+				font-size: calc(var(--slide-height) / 12);
+			}
+			#title p {
+				position: relative;
+				top: 150px;
+				left: calc(var(--slide-width) / 4);
+				font-size: calc(var(--slide-height) / 20);
+				line-height: calc(var(--slide-height) / 15);
+			}
+			#title div div span {
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+			#title div div img {
+				z-index: auto;
+				vertical-align: middle;
+				position: static;
+			}
+			.copyright {
+			    font-size: 30px;
+			    opacity: 0.7;
+			}			
+		</style>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Введение и REST API</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Обзор секции</h2>
+
+			<p><mark class="yellow">1.</mark> Обзор курса & Введение в нагрузку</p>
+			<p class="next"><mark class="green">2.</mark> Введение в Gatling & Установка Gatling</p>
+			<p class="next"><mark class="green">3.</mark> Установка зависимостей (SBT) & Настройка проекта</p>
+			<p class="next"><mark class="yellow">4.</mark> Основы разработки с Gatling</p>
+			<p class="next"><mark class="green">5.</mark> Тесты на REST HTTP API</p>
+			<p class="next"><mark class="green">6.</mark> Боевые стрельбы. Отчёты Gatling</p>
+			<p class="next"><mark class="green">7.</mark> Мониторинг Linux и Haproxy</p>
+	</div></section>
+
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Введение в нагрузку<br/>
+			<a href="https://polarnik.github.io/perflab/performance_test_kinds.html#">Виды тестирования производительности</a></h2>
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Введение в Gatling</h2>
+	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Gatling?</h2>
+
+		<figure class="next">
+			<img class="w cover" src="images/gatling/gatling.io.png">	
+			<figcaption class="copyright right">
+				© <a href="https://gatling.io">gatling.io</a>
+			</figcaption>	
+		</figure>	
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Язык для масштабируемых систем Scala</h2>
+
+		<figure>
+			<img class="w cover" src="images/gatling/Scala_logo.png">	
+			<figcaption class="copyright right">
+				© <a href="https://dwglogo.com/scala/">Scala logo</a>
+			</figcaption>	
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Фреймворк для паралельных вычислений</h2>
+
+		<figure>
+			<img class="w cover" src="images/gatling/Akka_toolkit_logo.svg">	
+			<figcaption class="copyright right">
+				© <a href="https://en.wikipedia.org/wiki/Akka_(toolkit)">Akka (toolkit) (wikipedia.org)</a>
+			</figcaption>	
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Экономия потоков (Thread) для многих VU</h2>
+
+		<figure>
+			<img class="w cover" src="images/gatling/vu.png">	
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/Script@3x.png">	
+			<figcaption class="copyright right">
+				© <a href="https://gatling.io/open-source/">gatling.io/open-source</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="clear yellow slide"><div>
+		<h2 class="small shout">Ключевые возможности Gatling</br>и причины его использования</h2>
+	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Ключевые возможности Gatling</h2>
+
+			<p>Поддержка HTTP<span>, JMS</span>, JDBC</span>, AMQP</span></p>
+			<p class="next">Основан на Scala, но с удобным DSL</p>
+			<p class="next">Gatling Recorder для записи HTTP-сценариев</p>
+			<p class="next">Простой запуск тестов в CI из командной строки</p>
+			<p class="next">Подробный отчёт по тестированию</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Причины использования Gatling</h2>
+
+			<p>Стрессовое тестирование, нагрузочное тестирование</p>
+			<p class="next">Эмуляция 1000+ пользователей</p>
+			<p class="next">Работа с CI/CD или командной строкой</p>
+			<p class="next">Научиться писать код и писать более сложные тесты</p>
+			<p class="next">Расширение знаний</p>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Установка и настрока Gatling</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/install.bundle.png">	
+			<figcaption class="copyright right">
+				© <a href="https://gatling.io/open-source/">gatling.io/open-source</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Установка и настройка проекта</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/install.sbt.png">	
+			<figcaption class="copyright right">
+				© <a href="https://gatling.io/open-source/">gatling.io/open-source</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Установка и настройка проекта</h2>
+
+			<p>Установка средств разработки</p>
+			<p class="next">Настройка SBT</p>
+			<p class="next">Создание и настройка проекта в IntelliJ IDEA</p>
+			<p class="next">Написание первого скрипта с Gatling</p>
+			<p class="next">Создание класса для запуска теста</p>
+			<p class="next">Структура сценария</p>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Установка средств разработки</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Java 8</h2>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.java.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SE Development Kit 8 Downloads</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Scala</h2>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.scala.2.12.8-1.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.scala-lang.org/download/2.12.8.html">Scala 2.12.8</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Scala</h2>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.scala.2.12.8-2.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.scala-lang.org/download/2.12.8.html">Scala 2.12.8</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.sbt.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.scala-sbt.org/download.html">www.scala-sbt.org/download.html</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>IDEA</h2>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.idea.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.jetbrains.com/idea/download/">www.jetbrains.com/idea/download</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.idea.plugins.png">	
+			<figcaption class="copyright right">
+				© <a href="https://plugins.jetbrains.com/idea">plugins.jetbrains.com/idea</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/dl.idea.plugins.zoom.png">	
+			<figcaption class="copyright right">
+				© <a href="https://plugins.jetbrains.com/idea">plugins.jetbrains.com/idea</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Настройка SBT</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<figure>
+			<img class="w cover bottom" src="images/gatling/artifactory.png">	
+			<figcaption class="copyright right">
+				© <a href="https://www.scala-sbt.org/download.html">www.scala-sbt.org/download.html</a>
+			</figcaption>				
+		</figure>	
+	</div></section>
+
+
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Создание и настройка проекта<br/>в IntelliJ IDEA</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Написание первого скрипта с Gatling</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Создание класса для запуска теста</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Структура сценария</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Боевые стрельбы</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Отчёты Gatling</h2>
+	</div></section>
+
+	<section class="clear green slide"><div>
+		<h2 class="small shout">Мониторинг Linux и Haproxy</h2>
+	</div></section>
+
+	<section class="clear slide" id="contacts"><div>
+		<h2>Алексей Колтаков</h2>
+		<h2>Вячеслав Смирнов</h2>
+		<div><span></span><h2>Спасибо!</h2></div>
+		<style>
+			#contacts h2 {
+				position: relative;
+				top: calc(var(--slide-height) / 3.06);
+				left: calc(var(--slide-width) / 12);
+				font-size: calc(var(--slide-height) / 15);
+			}
+			#contacts p {
+				position: relative;
+				top: calc(var(--slide-height) / 2.7);
+				left: calc(var(--slide-width) / 12);
+			}
+			#contacts div div {
+				width: calc(var(--slide-width) / 4);
+				height: calc(var(--slide-width) / 4);
+				position: absolute;
+				top: calc(var(--slide-height) / 4);
+				left: calc(var(--slide-width) * (8/9 - 1/4));
+				background: #ffed00;
+				border-radius: 50%;
+				white-space: nowrap;
+				text-align: center;
+				vertical-align: middle;
+			}
+			#contacts div div span {
+				display: inline-block;
+				height: 90%;
+				vertical-align: middle;
+			}
+			#contacts div div h2 {
+				z-index: auto;
+				vertical-align: middle;
+				position: static;
+				display: inline-block;
+				margin-bottom: 0;
+				color: #000;
+			}
+		</style>
+	</div></section>
+
+	<div class="progress"></div>
+
+	<script src="shower/shower.min.js"></script>
+</body>
+</html>
